@@ -1,0 +1,59 @@
+project:
+  type: book
+  output-dir: .
+
+book:
+  title: Title of Master Thesis
+  date: 9th of July 2024
+  author:
+    name: Jane Doe
+    url: http://www.janedoe.com
+  downloads: [pdf]
+  abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis accumsan ante. Quisque lorem metus, varius id urna eget, lacinia dapibus sem. Etiam laoreet, quam ac mollis congue, arcu leo dictum neque, nec euismod sem enim luctus odio. Donec condimentum tortor sit amet mollis volutpat. Donec ornare libero vel velit malesuada consectetur. Vestibulum in sem non justo dignissim congue at quis erat. Integer quis erat vitae mi maximus fringilla tristique nec odio. Morbi non ipsum sapien. Vestibulum tortor est, ultricies in eros et, bibendum iaculis justo. Cras pellentesque enim quam, id pretium lacus lacinia non. Integer velit neque, ultrices a malesuada vel, imperdiet quis enim. Quisque eu facilisis urna, ut faucibus lorem. Donec mollis turpis sed arcu venenatis interdum. Nulla facilisis tortor ac scelerisque consequat."
+  chapters:
+    - index.qmd
+    - Chapters/Chapter2.qmd
+    - references.qmd
+  appendices:
+    - Appendices/AppendixA.qmd
+
+  site-url: https://nmfs-opensci.github.io/quarto-thesis/
+  repo-url: https://github.com/nmfs-opensci/quarto-thesis
+  repo-actions: [edit, source, issue]
+  search: true
+
+thesis:
+  supervisor: 
+    name: Danel Fürth
+    url: https://furthlab.xyz/
+  degree-name: Master of Science
+  university: Uppsala Universitet
+  department: Department of Immunology, Genetics \& Pathology
+  group: Research Program of Molecular Tools for Functional Genomics
+  faculty: Fürth lab
+  declaration: "Frontmatter/declaration.tex"
+  quotation:
+    text: "Progress in science depends on new techniques, new discoveries and new ideas, probably in that order."
+    attribution: Sydney Brenner
+  acknowledgements: "Frontmatter/acknowledgements.tex"
+  abbreviations: "Frontmatter/abbreviations.tex"
+  symbols: "Frontmatter/symbols.tex"
+  dedication: "Frontmatter/dedication.tex"
+  logo: images/UU_LOGO.png
+  logo-height: "5cm"
+
+bibliography: [example.bib]
+
+execute:
+  echo: false
+  code-overflow: wrap
+
+# urlcolor changes the url color in the body of the PDF
+# linkcolor changes color of internal links (like to figures)
+# toclinkcolor changes color of toc, lof and lot links
+format:
+  quarto-thesis-pdf: 
+    urlcolor: blue
+    toclinkcolor: black
+    toc-depth: 2
+
