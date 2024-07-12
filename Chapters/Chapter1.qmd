@@ -35,7 +35,7 @@ Vi jämförde två grupper. Den första gruppen, _X_, hade större längd (_M_ =
 Vi jämförde cell densitet.
 
 ```{r echo = FALSE, warning = FALSE, output = FALSE}
-required_packages <- c("googlesheets4")
+required_packages <- c("googlesheets4") 
 installed_packages <- installed.packages()
 missing_packages <- setdiff(required_packages, installed_packages[, "Package"])
 
@@ -64,6 +64,8 @@ mod3 <- t.test(data$cell.density.cell.per.mL[data$dilution == 0.0625], data$cell
 
 Det var signifikant skillnad mellan 0.125 och 0.25 filution (_t_ = `r round(mod2$statistic, 2)`, _df_ `r round(mod2$parameter, 2)`= , _P_ = `r round(mod2$p.value, 2)`), men inte mellan 0.125 och 0.0625 (_t_ = `r round(mod3$statistic, 2)`, _df_ `r round(mod3$parameter, 2)`= , _P_ = `r round(mod3$p.value, 2)`)
 
+
+![*hej hej*](../Figures/bacteria_detection.pdf){#fig-bacteria width=16cm}
 
 
 ## Welcome and Thank You
