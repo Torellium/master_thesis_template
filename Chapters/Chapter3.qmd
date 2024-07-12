@@ -5,74 +5,36 @@ format:
     classoption: ["11pt", "english", "singlespacing", "headsepline"]
 ---
 
-# Results {#sec-Chapter1}
+# Chapter 1 Title {#sec-Chapter1}
 
-## Synthesis
+## Lets try to insert a figure here
 
-Detta är en resultatdel där vis ka ha en figur.
+To insert a figure mere use Markdown code like this: 
 
-![**CuAAC syntesväg.** schematisk figur som visar hur 3'ändan av en oligonukleotid märks in med en fluorophore. **a)** Panel a visar detta. **b)** Panel B visar detta.](../Figures/cuaac_fluorophore.pdf){#fig-cuaac width=16cm}
+`![This is a caption](../Figures/cuaac_fluorophore.pdf)`.
 
-Som ni kan se i **@fig-cuaac** så verkar detta fungera.
+![This is a caption](../Figures/cuaac_fluorophore.pdf){#fig-cuaac width=16cm}
 
-```{r echo=FALSE}
-x <- rnorm(100, 30, 10) 
-y <- rnorm(100, 5, 10)
+As can be seen in figure **@fig-cuaac**.
+
+## Analyse data.
+
+```{r echo = FALSE}
+x <- rnorm(100, 30, 1)
+y <- rnorm(100, 10, 1)
 
 mod1 <- t.test(x, y)
 
-if(mod1$p.value < 0.0001){
-    pvarde <- 0.0001
-}else{
-    pvarde <- mod1$p.value
-}
 ```
 
-Vi jämförde två grupper. Den första gruppen, _X_, hade större längd (_M_ = `r round(mean(x), 2)` cm, _SD_ = `r round(sd(x), 2)` cm) än den andra gruppen _Y_ (_M_ = `r round(mean(y), 2)` cm, _SD_ = `r round(sd(y), 2)` cm). Denna skillnad var också statistiskt säkerställd (_t_ = `r round(mod1$statistic, 2)`, _df_ `r round(mod1$parameter, 2)`= , _P_ < `r round(pvarde, 4)`).
+The results is that group _X_ had a higher mean score (_M_ = `r round(mean(x), 2)`, _SD_ = `r round(sd(x),2)`) than group _Y_ (_M_ = `r round(mean(y), 2)`, _SD_ = `r round(sd(y),2)`), and this was statistically significant (_t_ = `r round(mod1$statistic, 2)`, _df_ = `r round(mod1$parameter, 2)`,  ). 
 
-## Cell densitet
-
-Vi jämförde cell densitet.
-
-```{r echo = FALSE, warning = FALSE, output = FALSE}
-required_packages <- c("googlesheets4")
-installed_packages <- installed.packages()
-missing_packages <- setdiff(required_packages, installed_packages[, "Package"])
-
-if (length(missing_packages) > 0) {
-    install.packages(missing_packages)
-}
-
-# Load required libraries
-library(googlesheets4)
-googlesheets4::gs4_deauth()
-
-spreadsheet_url <- "https://docs.google.com/spreadsheets/d/10r3DV5vFsZOu7DPbqlNHDd-WW0NrRXuFe8J5mhg-bQ8/edit?gid=0#gid=0"
-sheet_name <- "Blad1"
-
-# Read the data from Google Sheets
-data <- read_sheet(spreadsheet_url, sheet = sheet_name)
-
-#jämför 0.5 och 0.25
-mod1 <- t.test(data$cell.density.cell.per.mL[data$dilution == 0.25], data$cell.density.cell.per.mL[data$dilution == 0.5] )
-
-mod2 <- t.test(data$cell.density.cell.per.mL[data$dilution == 0.125], data$cell.density.cell.per.mL[data$dilution == 0.25] )
-
-mod3 <- t.test(data$cell.density.cell.per.mL[data$dilution == 0.0625], data$cell.density.cell.per.mL[data$dilution == 0.125] )
-
-```
-
-Det var signifikant skillnad mellan 0.125 och 0.25 filution (_t_ = `r round(mod2$statistic, 2)`, _df_ `r round(mod2$parameter, 2)`= , _P_ = `r round(mod2$p.value, 2)`), men inte mellan 0.125 och 0.0625 (_t_ = `r round(mod3$statistic, 2)`, _df_ `r round(mod3$parameter, 2)`= , _P_ = `r round(mod3$p.value, 2)`)
-
-
+![Methyltetrazine group is added](../Figures/nhs_methyltetrazine.pdf){#fig-nhs width=16cm}
 
 ## Welcome and Thank You
 
 Welcome to this \LaTeX{} Thesis Template, using the \LaTeX{} typesetting system and [Quarto](quarto.org) and based on the \LaTeX{} thesis template MastersDoctoralThesis version 2.0 downloaded from [LaTeXTemplates](http://www.LaTeXTemplates.com). 
-This LaTeX document class was authored by Vel (vel@latextemplates.com) and Johannes Böttcher based on a style file by Steve R. Gunn from the University of Southampton (UK), department of Electronics and Computer Science.
-
-
-Det har visat sig i literaturen att formamid påverkar smälttemperaturen (Tm) av oligonukleotider [@blake_thermodynamic_1996; @fuchs_effects_2010].
+This LaTeX document class was authored by Vel (vel@latextemplates.com) and Johannes Böttcher based on a style file by Steve R. Gunn from the University of Southampton (UK), department of Electronics and Computer Science. [@Reference1; @Reference2]
 
 
 ## A Short Math Guide for \LaTeX{}
@@ -242,3 +204,4 @@ Sunil Patel: http://www.sunilpatel.co.uk}{www.sunilpatel.co.uk
 and Vel: http://www.LaTeXTemplates.com
 
 and heavily shortened and adapted for [Quarto](https://quarto.org/) by [Eli Holmes](https://eeholmes.github.io).
+
